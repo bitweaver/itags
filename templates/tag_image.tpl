@@ -44,7 +44,7 @@
 					Description : <input type=text name=description>
 					<input type=submit value=save>
 				</form>
-				{foreach from=$gContent->mInfo.tags item=resTags key=itemContentId}
+				{foreach from=$gContent->mInfo.itags item=resTags key=itemContentId}
 					Tag # {$resTags.comment_id} - {$resTags.description} <a href="tag_image.php?image_id={$gContent->mImageId}&delete={$resTags.comment_id}">Delete</a><br />
 				{/foreach}
 				<a href="tag_image.php?image_id={$gContent->mImageId}">Go to view mode</a>
