@@ -1,6 +1,6 @@
 <?php
 /**
- * @version $Header: /cvsroot/bitweaver/_bit_itags/LibertyItag.php,v 1.1 2010/06/03 15:49:50 lsces Exp $
+ * @version $Header: /cvsroot/bitweaver/_bit_itags/LibertyItag.php,v 1.2 2010/06/03 16:33:04 lsces Exp $
  * created 2006/08/01
  * @author Will <will@onnyturf.com>
  *
@@ -45,12 +45,12 @@ class LibertyItag extends LibertyBase {
 	 * @access public
 	 **/
 	function store( &$pParamHash ) {
-vd($pParamHash);		
+
 		if( $this->verify( $pParamHash ) ) {
 			$this->mDb->StartTrans();
 			$storeComment = new LibertyComment( @BitBase::verifyId( $pParamHash['comment_id'] ) ? $pParamHash['comment_id'] : NULL );
 			if ( $this->verifyId( $storeComment->mCommentId ) ) {
-				$this->mDb->query( "DELETE FROM `".BIT_DB_PREFIX."itags_image_areas` WHERE `content_id`=? and `comment_id`=?", array( $this->mContentId, $storeComment->mCommentId ) );
+				$this->mDb->query( "DELETE FROM `".BIT_DB_PREFIX."itags_image_areas` WHERE `attachment_id`=? and `comment_id`=?", array( $this->mAttachmentId, $storeComment->mCommentId ) );
 			}
 			if( $storeComment->storeComment( $pParamHash['comment'] )) {
 				// store successful
@@ -99,6 +99,25 @@ vd($pParamHash);
 			$query = "DELETE FROM `".BIT_DB_PREFIX."itags_image_areas` WHERE `attachment_id` = ?";
 			$result = $this->mDb->query( $query, array( $this->mAttachemntId ) );
 		}
+		return $ret;
+	}
+
+	/**
+	 * This function removes a single image area tag
+	 **/
+	function expunge_tag( $itagId ) {
+		$ret = FALSE;
+		$storeComment = new LibertyComment( @BitBase::verifyId( $itagId ) ? $itagId : NULL );
+		$storeComment->mDb->StartTrans();
+
+		if ( $storeComment->verifyId( $storeComment->mCommentId ) ) {
+			$storeComment->mDb->query( "DELETE FROM `".BIT_DB_PREFIX."itags_image_areas` WHERE `attachment_id`=? and `comment_id`=?"
+			, array( $this->mAttachementId, $storeComment->mCommentId ) );
+		}
+		$storeComment->expunge();
+		$storeComment->mDb->CompleteTrans();
+		$this->load();
+
 		return $ret;
 	}
 
@@ -173,7 +192,7 @@ function itags_content_store( &$pObject, &$pParamHash ) {
 }
 
 function itags_content_expunge( &$pObject ) {
-	$itags = new LibertyItag( $pObject->mAttachmentId );
-	$itags->expunge();
+//	$itags = new LibertyItag( $pObject->mAttachmentId );
+//	$itags->expunge();
 }
 ?>

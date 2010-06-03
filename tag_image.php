@@ -1,6 +1,6 @@
 <?php
 /**
- * @version $Header: /cvsroot/bitweaver/_bit_itags/tag_image.php,v 1.1 2010/06/03 15:49:50 lsces Exp $
+ * @version $Header: /cvsroot/bitweaver/_bit_itags/tag_image.php,v 1.2 2010/06/03 16:33:04 lsces Exp $
  * @package itags
  * @subpackage functions
  */
@@ -25,7 +25,7 @@ if( !empty( $_REQUEST['mode'] ) ) {
 }
 
 if( !empty( $_REQUEST['delete'] ) ) {
-	// delete tag record 
+	$tag->expunge_tag( $_REQUEST['delete'] );
 }
 
 $tag->load();
