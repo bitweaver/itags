@@ -1,6 +1,6 @@
 <?php
 /**
- * @version $Header: /cvsroot/bitweaver/_bit_itags/LibertyItag.php,v 1.2 2010/06/03 16:33:04 lsces Exp $
+ * @version $Header: /cvsroot/bitweaver/_bit_itags/LibertyItag.php,v 1.3 2010/06/03 20:00:00 lsces Exp $
  * created 2006/08/01
  * @author Will <will@onnyturf.com>
  *
@@ -165,7 +165,7 @@ function itags_content_load_sql() {
 function itags_content_list_sql( &$pObject, $pParamHash=NULL ) {
 	global $gBitSystem;
 	$ret = array();
-	if ( $pObject->mInfo['attachment_id'] ) {
+	if ( !empty( $pObject->mInfo['attachment_id'] ) ) {
 		$ret['select_sql'] = " , itags.`comment_id` , itags.`itag_top`, itags.`itag_left`, itags.`itag_width`, itags.`itag_height`";
 		$ret['join_sql'] = " LEFT JOIN `".BIT_DB_PREFIX."itags_image_areas` itags ON ( itags.`attachment_id` = ".$pObject->mInfo['attachment_id'].")";
 		$ret['where_sql'] = "";
