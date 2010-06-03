@@ -12,7 +12,7 @@ $gBitSystem->registerPackage( $registerHash );
 
 if( $gBitSystem->isPackageActive( 'itags' ) && $gBitUser->hasPermission( 'p_itags_view' )) {
 	// load css file
-//	$gBitThemes->loadCss( ITAGS_PKG_PATH.'templates/tags.css' );
+$gBitThemes->loadCss( ITAGS_PKG_PATH.'css/imagetag.css' );
 
 	require_once( ITAGS_PKG_PATH.'LibertyItag.php' );
 /*
