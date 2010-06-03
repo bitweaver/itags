@@ -1,6 +1,6 @@
 <?php
 /**
- * @version $Header: /cvsroot/bitweaver/_bit_itags/tag_image.php,v 1.2 2010/06/03 16:33:04 lsces Exp $
+ * @version $Header: /cvsroot/bitweaver/_bit_itags/tag_image.php,v 1.3 2010/06/03 16:47:21 lsces Exp $
  * @package itags
  * @subpackage functions
  */
@@ -30,8 +30,6 @@ if( !empty( $_REQUEST['delete'] ) ) {
 
 $tag->load();
 
-$gBitThemes->loadCss( UTIL_PKG_PATH.'javascript/libs/jquery/themes/base/ui.all.css', TRUE );
-$gBitThemes->loadCss( THEMES_PKG_PATH.'css/imagetag.css', TRUE );
 $gBitThemes->loadAjax( 'jquery' );
 $gBitThemes->loadJavascript( UTIL_PKG_PATH.'javascript/libs/jquery/full/ui/jquery.ui.all.js', FALSE, 500, FALSE );
 $gBitThemes->loadJavascript( ITAGS_PKG_PATH.'scripts/imagetag.js', FALSE, 500, FALSE );
