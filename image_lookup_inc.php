@@ -1,6 +1,6 @@
 <?php
 /**
- * @version $Header: /cvsroot/bitweaver/_bit_itags/image_lookup_inc.php,v 1.1 2010/06/03 15:49:50 lsces Exp $
+ * @version $Header$
  * @package itags
  * @subpackage functions
  */

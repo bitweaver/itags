@@ -1,6 +1,6 @@
 <?php
 /**
- * @version $Header: /cvsroot/bitweaver/_bit_itags/LibertyItag.php,v 1.3 2010/06/03 20:00:00 lsces Exp $
+ * @version $Header$
  * created 2006/08/01
  * @author Will <will@onnyturf.com>
  *

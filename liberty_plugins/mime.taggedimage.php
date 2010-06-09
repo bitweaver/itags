@@ -1,9 +1,9 @@
 <?php
 /**
- * @version		$Header: /cvsroot/bitweaver/_bit_itags/liberty_plugins/mime.taggedimage.php,v 1.1 2010/06/03 15:49:50 lsces Exp $
+ * @version		$Header$
  *
  * @author		xing  <xing@synapse.plus.com>
- * @version		$Revision: 1.1 $
+ * @version		$Revision$
  * created		Thursday May 13, 2010 ( from mime.image.php )
  * @package		liberty
  * @subpackage	liberty_mime_handler

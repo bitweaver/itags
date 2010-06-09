@@ -1,6 +1,6 @@
 <?php
 /**
- * @version $Header: /cvsroot/bitweaver/_bit_itags/tag_image.php,v 1.3 2010/06/03 16:47:21 lsces Exp $
+ * @version $Header$
  * @package itags
  * @subpackage functions
  */
